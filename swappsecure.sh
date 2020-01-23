@@ -5,7 +5,7 @@ set -o pipefail
 
 TMPDIR=`mktemp -d`
 REMEMBER="Be careful, don't push any file without the .encrypt extension"
-BYE="bye ¯\_(ツ)_/¯"
+BYE="Juan Luis Goldaracena"
 VERSION="1.0"
 
 function convert() {
