@@ -2,8 +2,8 @@ FROM centos/s2i-core-centos7
 MAINTAINER Juan Luis Goldaracena
 
 ## CREATE FOLDERS FOR INSTALL SOFTWARE VERSION
-RUN mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp
-    mkdir -p /opt/clientesapp/create && chgrp -R 0 /opt/clientesapp/create
+RUN mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp && \
+    mkdir -p /opt/clientesapp/create && chgrp -R 0 /opt/clientesapp/create && \
     mkdir -p /opt/clientesapp/update && chgrp -R 0 /opt/clientesapp/update
 
 ## INSTALL DEV PACKAGES
