@@ -17,9 +17,11 @@ RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL SOFTWARE VERSION
-ADD latest_version /temporal/create
-ADD latest_version /temporal/update
+ADD latest_version/create/spring-boot-jpa-1.0.encrypt /temporal/create
+ADD latest_version/update/spring-boot-jpa-1.0.encrypt /temporal/update
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
+RUN chmod 775 -R /opt/clientesapp/create && chown -R 10001 /opt/clientesapp/create
+RUN chmod 775 -R /opt/clientesapp/update && chown -R 10001 /opt/clientesapp/update
 
 COPY entrypoint.sh /tmp/entrypoint.sh
 

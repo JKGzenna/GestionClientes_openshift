@@ -2,10 +2,7 @@ FROM centos/s2i-core-centos7
 MAINTAINER Juan Luis Goldaracena
 
 ## CREATE FOLDERS FOR INSTALL SOFTWARE VERSION
-RUN mkdir -p /temporal && chgrp -R 0 /temporal && chmod 775 -R /temporal && \
-    mkdir -p /temporal/create && chgrp -R 0 /temporal/create && chmod 775 -R /temporal/create && \
-    mkdir -p /temporal/update && chgrp -R 0 /temporal/update && chmod 775 -R /temporal/update && \
-    mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp
+RUN mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp
     mkdir -p /opt/clientesapp/create && chgrp -R 0 /opt/clientesapp/create
     mkdir -p /opt/clientesapp/update && chgrp -R 0 /opt/clientesapp/update
 
@@ -17,9 +14,11 @@ RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL SOFTWARE VERSION
-ADD latest_version /temporal/create
-ADD latest_version /temporal/update
+ADD latest_version/create/spring-boot-jpa-1.0.jar /opt/clientesapp/create
+ADD latest_version/update/spring-boot-jpa-1.0.jar /opt/clientesapp/update
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
+RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp/create
+RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp/update
 
 COPY entrypoint.sh /tmp/entrypoint.sh
 
