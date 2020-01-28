@@ -26,5 +26,6 @@ COPY entrypoint.sh /tmp/entrypoint.sh
 EXPOSE 9000
 
 USER clientesapp
-
+CMD java -jar /opt/clientesapp/create/spring-boot-jpa-1.0.jar
 CMD ["/tmp/entrypoint.sh"]
+
