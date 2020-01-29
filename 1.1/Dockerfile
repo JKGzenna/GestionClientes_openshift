@@ -18,7 +18,6 @@ RUN chmod 775 -R /temporal && chown -R 10001 /temporal
 RUN chmod 775 /temporal/spring-boot-jpa-1.0.zip && chown -R 10001 /temporal
 RUN unzip /temporal/spring-boot-jpa-1.0.zip
 RUN chmod 775 -R /temporal && chown -R 10001 /temporal
-RUN chmod 775 /temporal/spring-boot-jpa-1.0.encrypt && chown -R 10001 /temporal
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 COPY entrypoint.sh /tmp/entrypoint.sh
