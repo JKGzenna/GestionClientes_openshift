@@ -8,7 +8,7 @@ RUN mkdir -p /temporal && chgrp -R 0 /temporal && chmod 775 -R /temporal && \
 
 ## INSTALL DEV PACKAGES
 RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
-    mysql unzip bind-utils netcap openssh-server openssl -y && yum clean all
+    mysql bind-utils netcap openssh-server openssl -y && yum clean all
 
 ## SETUP clientesapp USER
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
