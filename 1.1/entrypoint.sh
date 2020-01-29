@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #CREATE ENCRYPT KEY VARIABLE FOR OPENSSL DECRYPT-SCRIPT
 encrypt_key=$(cat /etc/secret-volume/password)
 
@@ -15,3 +16,6 @@ rm -rf /tmp/$SW_VERSION.tar
 
 #START CLIENTESAPP JAR
 java -jar /opt/clientesapp/$SW_VERSION.jar
+
+#ERASE ALL TEMP FILES
+rm -rf /opt/clientesapp/$SW_VERSION.jar
