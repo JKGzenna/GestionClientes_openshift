@@ -16,8 +16,6 @@ RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 ADD latest_version/spring-boot-jpa-1.0.zip /temporal
 RUN chmod 775 -R /temporal && chown -R 10001 /temporal
 RUN chmod 775 /temporal/spring-boot-jpa-1.0.zip && chown -R 10001 /temporal
-RUN unzip /temporal/spring-boot-jpa-1.0.zip
-RUN chmod 775 -R /temporal && chown -R 10001 /temporal
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 COPY entrypoint.sh /tmp/entrypoint.sh
