@@ -7,16 +7,17 @@ RUN mkdir -p /temporal && chgrp -R 0 /temporal && chmod 775 -R /temporal && \
 
 ## INSTALL DEV PACKAGES
 RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
-    mysql bind-utils netcap openssh-server openssl -y && yum clean all
+    mysql unzip bind-utils netcap openssh-server openssl -y && yum clean all
 
 ## SETUP clientesapp USER
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL SOFTWARE VERSION
 ADD latest_version/spring-boot-jpa-1.0.zip /temporal
-RUN chmod 775 -R /temporal && chown -R 10001 /temporal
+RUN chmod 775 /temporal/spring-boot-jpa-1.0.zip && chown -R 10001 /temporal
 RUN unzip /temporal/spring-boot-jpa-1.0.zip
 RUN chmod 775 -R /temporal && chown -R 10001 /temporal
+RUN chmod 775 /temporal/spring-boot-jpa-1.0.encrypt && chown -R 10001 /temporal
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 COPY entrypoint.sh /tmp/entrypoint.sh
