@@ -8,7 +8,7 @@ cp /temporal/$SW_VERSION.encrypt /tmp
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "/tmp/$SW_VERSION.encrypt" -out "/tmp/$SW_VERSION.tar" -pass stdin
 
 #UNTAR FILES OF SW_VERSION TO JAR AND COPY JAR IN APP FOLDER
-tar -xvf /tmp/$SW_VERSION.tar -C /opt/clientesapp --strip 1
+tar -xvf /tmp/$SW_VERSION.tar -C /opt/clientesapp
 
 #START CLIENTESAPP JAR
 cd /opt/clientesapp
