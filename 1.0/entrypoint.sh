@@ -1,11 +1,5 @@
 #!/bin/bash
-
 #START CLIENTESAPP CREATE
-cd /opt/clientesapp/create
-sudo java -jar $SW_VERSION.jar
+cd /opt/clientesapp
+java -jar spring-boot-jpa-1.0.jar
 
-sleep 10
-
-#RE-START CLIENTESAPP UPDATE
-cd /opt/clientesapp/update
-sudo java -jar $SW_VERSION.jar
