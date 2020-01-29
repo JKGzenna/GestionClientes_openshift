@@ -18,7 +18,7 @@ RUN chmod 775 -R /temporal && chown -R 10001 /temporal
 RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
-## ENTRYPOINT CON SECURIZACION DE EJECUTABLES
+## ENTRYPOINT WITH SECURIZATION FOR EXECUTE FILES
 COPY entrypoint.sh /tmp/entrypoint.sh
 
 #PUERTO DE EXPOSICION (EN NUESTRO CASO ESTE PUERTO LO REDIRIGIRA INTERNAMENTE NGINX HACIA EL 8448)
