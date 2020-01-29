@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #CREATE ENCRYPT KEY VARIABLE FOR OPENSSL DECRYPT-SCRIPT
 encrypt_key=$(cat /etc/secret-volume/password)
 
