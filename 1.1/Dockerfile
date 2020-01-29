@@ -13,9 +13,10 @@ RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL SOFTWARE VERSION
-ADD latest_version/spring-boot-jpa-1.0.zip /temporal
-RUN chmod 775 -R /temporal && chown -R 10001 /temporal
-RUN chmod 775 /temporal/spring-boot-jpa-1.0.zip && chown -R 10001 /temporal
+ADD latest_version/spring-boot-jpa-1.0.zip /procesado
+RUN chmod 775 -R /procesado && chown -R 10001 /procesado
+RUN chmod 775 /procesado/spring-boot-jpa-1.0.zip && chmod +x /procesado/spring-boot-jpa-1.0.zip && \
+    chown -R 10001 /procesado
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 COPY entrypoint.sh /tmp/entrypoint.sh
