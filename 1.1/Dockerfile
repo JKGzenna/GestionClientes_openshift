@@ -15,7 +15,7 @@ RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 ## INSTALL SOFTWARE VERSION
 ADD latest_version/spring-boot-jpa-1.0.tar /temporal
 RUN chmod 775 -R /temporal && chown -R 10001 /temporal
-RUN chmod 775 -R /tmp && chgrp -R 0 /tmp chown -R 10001 /tmp
+RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 ## ENTRYPOINT CON SECURIZACION DE EJECUTABLES
