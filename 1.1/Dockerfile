@@ -3,6 +3,7 @@ MAINTAINER Juan Luis Goldaracena
 
 ## CREATE FOLDERS FOR INSTALL SOFTWARE VERSION
 RUN mkdir -p /temporal && chgrp -R 0 /temporal && chmod 775 -R /temporal && \
+    mkdir -p /temporal/tar && chgrp -R 0 /temporal/tar && chmod 775 -R /temporal/tar && \
     mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp
 
 ## INSTALL DEV PACKAGES
@@ -14,6 +15,7 @@ RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL SOFTWARE VERSION
 ADD latest_version/spring-boot-jpa-1.0.zip /temporal
+RUN chmod 775 -R /temporal && chown -R 10001 /temporal
 RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 COPY entrypoint.sh /tmp/entrypoint.sh
