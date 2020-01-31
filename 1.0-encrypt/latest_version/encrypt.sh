@@ -15,5 +15,4 @@ rm -rf $SW_VERSION.encrypt
 
 #MENSAJE Y SALIDA
 echo "Encriptación realizada con éxito"
-sleep 5
 exit
