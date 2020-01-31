@@ -6,11 +6,11 @@ export encrypt_key="34836a8f11beeaf01e12cd296251c65f"
 export SW_VERSION="spring-boot-jpa-1.0"
 
 #HACEMOS LAS CONVERSIONES, DESENCRIPTAMOS Y BORRAMOS LOS TEMPORALES GENERADOS
-tar -xvf /$SW_VERSION.tar
+tar -xvf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
 rm -rf $SW_VERSION.encrypt
-tar -xvf /tmp/$SW_VERSION.tar
+tar -xvf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
 
 #MENSAJE Y SALIDA
