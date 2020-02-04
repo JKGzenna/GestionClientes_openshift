@@ -16,6 +16,6 @@ rm -rf /opt/clientesapp/SW_VERSION.jar
 cp $SW_VERSION.jar /opt/clientesapp
 
 #MENSAJE Y EJECUACIÓN DEL UPDATE
-echo "Desencriptación realizada con éxito, actualizando y creando directorio '/uploads', recuerde entrar crear un cliente con imagen y crear el volumen para la carpeta 'uploads"
+echo "Desencriptación realizada con éxito, actualizando y creando directorio '/uploads', recuerde entrar crear un cliente con imagen y crear el volumen para la carpeta '/uploads"
 sleep 5
 java -jar $SW_VERSION.jar
