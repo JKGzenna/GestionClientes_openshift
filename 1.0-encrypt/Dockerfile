@@ -23,7 +23,7 @@ RUN chmod 775 -R /temporal && chown -R 10001 /temporal && \
 
 ## ENTRYPOINT WITH SECURIZATION FOR EXECUTE FILES
 COPY entrypoint.sh /tmp/entrypoint.sh
-COPY latest_version/create_updir/decrypt.sh /opt/clientesapp/update/decrypt.sh
+COPY latest_version/create_updir/decrypt_update.sh /opt/clientesapp/update/decrypt.sh
 
 ## APP EXPOSE PORT (NGINX SERVICE REDIRECT PORT 8081 -> 8448)
 EXPOSE 8081
