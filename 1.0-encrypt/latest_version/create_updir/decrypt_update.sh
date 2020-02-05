@@ -17,6 +17,3 @@ rm -rf $SW_VERSION.jar
 
 #MENSAJE Y APLICACION DEL UPDATE
 echo "Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar' para terminar de aplicar la actualización"
-sleep 5
-java -jar /opt/clientesapp/$SW_VERSION.jar
-exit
