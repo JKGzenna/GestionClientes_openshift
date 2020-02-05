@@ -12,8 +12,8 @@ echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -
 rm -rf $SW_VERSION.encrypt
 tar -xf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
-
-#MENSAJE Y EJECUACIÓN DEL UPDATE
+rm -rf /opt/clientesapp/$SW_VERSION.jar
+cp $SW_VERSION.jar /opt/clientesapp
+#MENSAJE
 echo "Desencriptación realizada con éxito, desplegando actualización"
-sleep 4
-java $SW_VERSION.jar
+exit
