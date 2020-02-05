@@ -15,8 +15,9 @@ rm -rf $SW_VERSION.tar
 rm -rf /opt/clientesapp/SW_VERSION.jar
 cp $SW_VERSION.jar /opt/clientesapp
 rm -rf $SW_VERSION.jar
+cd /opt/clientesapp
 
 #MENSAJE Y EJECUACIÓN DEL UPDATE
 echo "Desencriptación realizada con éxito, desplegando actualización"
 sleep 10
-java -jar /opt/clientesapp/$SW_VERSION.jar
+java $SW_VERSION.jar
