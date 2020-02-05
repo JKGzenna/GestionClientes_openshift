@@ -15,7 +15,8 @@ tar -xvf $SW_VERSION.tar -C /opt/clientesapp
 rm -rf $SW_VERSION.tar
 rm -rf $SW_VERSION.jar
 
-#MENSAJE
-echo "Desencriptación realizada con éxito, ejecute 'java -jar /opt/clientesapp/$SW_VERSION.jar' para terminar de aplicar la actualización"
+#MENSAJE Y APLICACION DEL UPDATE
+echo "Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar' para terminar de aplicar la actualización"
+sleep 5
 java -jar /opt/clientesapp/$SW_VERSION.jar
 exit
