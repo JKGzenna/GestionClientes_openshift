@@ -2,8 +2,8 @@
 #COLOCAR EL '.encrypt' EN LATEST VERSION O EN LA MISMA RUTA DEL SCRIPT Y EJECUTARLO DESDE ESE DIRECTORIO
 
 #CREAMOS LAS VARIABLES
-export encrypt_key="34836a8f11beeaf01e12cd296251c65f"
-export SW_VERSION="spring-boot-jpa-1.0"
+encrypt_key=$(cat /etc/secret-volume/password)
+SW_VERSION="spring-boot-jpa-1.0"
 
 #HACEMOS LAS CONVERSIONES, DESENCRIPTAMOS Y BORRAMOS LOS TEMPORALES GENERADOS
 tar -xvf $SW_VERSION.tar
@@ -14,5 +14,5 @@ tar -xvf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
 
 #MENSAJE Y SALIDA
-echo "Encriptación realizada con éxito"
+echo "Desencriptación realizada con éxito"
 exit
