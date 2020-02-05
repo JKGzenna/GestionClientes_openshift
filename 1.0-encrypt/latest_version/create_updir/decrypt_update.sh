@@ -6,15 +6,16 @@ encrypt_key=$(cat /etc/secret-volume/password)
 SW_VERSION="spring-boot-jpa-1.0"
 
 #HACEMOS LAS CONVERSIONES, DESENCRIPTAMOS Y BORRAMOS LOS TEMPORALES GENERADOS
-tar -xf $SW_VERSION.tar
+tar -xvf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
 rm -rf $SW_VERSION.encrypt
-tar -xf $SW_VERSION.tar
-rm -rf $SW_VERSION.tar
-cp /opt/clientesapp/update/$SW_VERSION.jar /opt/clientesapp
 rm -rf /opt/clientesapp/$SW_VERSION.jar
+tar -xvf $SW_VERSION.tar -C /opt/clientesapp
+rm -rf $SW_VERSION.tar
+rm -rf $SW_VERSION.jar
 
 #MENSAJE
 echo "Desencriptación realizada con éxito, ejecute 'java -jar /opt/clientesapp/$SW_VERSION.jar' para terminar de aplicar la actualización"
+#java -jar /opt/clientesapp/$SW_VERSION.jar
 exit
