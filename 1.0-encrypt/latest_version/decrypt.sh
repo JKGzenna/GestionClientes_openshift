@@ -14,5 +14,5 @@ tar -xvf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
 
 #MENSAJE Y SALIDA
-echo "Encriptación realizada con éxito"
+echo "Desencriptación realizada con éxito"
 exit
