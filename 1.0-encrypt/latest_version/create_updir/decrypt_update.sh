@@ -13,7 +13,7 @@ rm -rf $SW_VERSION.encrypt
 tar -xf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
 rm -rf /opt/clientesapp/$SW_VERSION.jar
-cp $SW_VERSION.jar /opt/clientesapp
+cp /opt/clientesapp/update/$SW_VERSION.jar /opt/clientesapp
 #MENSAJE
-echo "Desencriptación realizada con éxito, desplegando actualización"
+echo "Desencriptación realizada con éxito, ejecute 'java -jar /opt/clientesapp/$SW_VERSION.jar' para terminar de aplicar la actualización"
 exit
