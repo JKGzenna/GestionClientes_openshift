@@ -12,10 +12,8 @@ echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -
 rm -rf $SW_VERSION.encrypt
 tar -xf $SW_VERSION.tar
 rm -rf $SW_VERSION.tar
-rm -rf /opt/clientesapp/SW_VERSION.jar
-cp $SW_VERSION.jar /opt/clientesapp
 
 #MENSAJE Y EJECUACIÓN DEL UPDATE
-echo "Desencriptación realizada con éxito, actualizando y creando directorio '/uploads', recuerde entrar, crear un cliente con imagen, ver que funciona, y crear el build desde la rama update, despues de desplegar desde ese build crear el volumen para la carpeta '/uploads' y se volverá a reinicar y editamos ese cliente y pronamos con un reinicio que guarda las imágenes"
+echo "Desencriptación realizada con éxito, actualizando y creando directorio '/uploads', recuerde entrar, crear un cliente con imagen, ver que funciona, y crear el build desde la rama update, despues de desplegar desde ese build crear el volumen para la carpeta '/uploads' y se volverá a reinicar y editamos ese cliente y probamos con un reinicio que guarda las imágenes"
 sleep 10
 java -jar $SW_VERSION.jar
