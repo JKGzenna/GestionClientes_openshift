@@ -1,5 +1,4 @@
 #!/bin/bash
-#COLOCAR EL '.encrypt' EN LATEST VERSION O EN LA MISMA RUTA DEL SCRIPT Y EJECUTARLO DESDE ESE DIRECTORIO
 
 #CREAMOS LAS VARIABLES
 encrypt_key=$(cat /etc/secret-volume/password)
