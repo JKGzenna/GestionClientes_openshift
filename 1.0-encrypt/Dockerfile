@@ -2,20 +2,18 @@ FROM centos/s2i-core-centos7
 MAINTAINER Juan Luis Goldaracena
 
 ## CREATE FOLDERS FOR INSTALL SOFTWARE VERSION
-RUN mkdir -p /temporal && chgrp -R 0 /temporal && chmod 775 -R /temporal && \
-    mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp
+RUN mkdir -p /opt/clientesapp && chgrp -R 0 /opt/clientesapp
 
 ## INSTALL DEV PACKAGES
 RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
     mysql bind-utils netcap openssh-server openssl -y && yum clean all
 
 ## CONFIG clientesapp USER
-RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
+RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesappZ
 
 ## INSTALL SOFTWARE VERSION
-ADD latest_version/spring-boot-jpa-1.0.tar /temporal
-RUN chmod 775 -R /temporal && chown -R 10001 /temporal && \
-    chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
+ADD latest_version/spring-boot-jpa-1.0.tar /tmp
+RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
     chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 ## ENTRYPOINT WITH SECURIZATION FOR EXECUTE FILES
