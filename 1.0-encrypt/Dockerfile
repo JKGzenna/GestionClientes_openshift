@@ -22,7 +22,7 @@ RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
 COPY entrypoint.sh /tmp/entrypoint.sh
 
 ## FIX PERMISSIONS
-RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
+RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp
 
 ## APP EXPOSE PORT (NGINX SERVICE REDIRECT PORT 8081 -> 8448)
 EXPOSE 8081
