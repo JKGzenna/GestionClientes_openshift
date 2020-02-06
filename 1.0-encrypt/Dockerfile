@@ -14,11 +14,15 @@ RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 ## INSTALL SOFTWARE VERSION
 ADD latest_version/spring-boot-jpa-1.0.tar /tmp
 
+## FIX PERMISSIONS
 RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
     chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 ## ENTRYPOINT WITH SECURIZATION FOR EXECUTE FILES
 COPY entrypoint.sh /tmp/entrypoint.sh
+
+## FIX PERMISSIONS
+RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
 
 ## APP EXPOSE PORT (NGINX SERVICE REDIRECT PORT 8081 -> 8448)
 EXPOSE 8081
