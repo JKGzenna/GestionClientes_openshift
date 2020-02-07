@@ -76,12 +76,12 @@ que la aplicación de spring, en este caso 8081
 - Hacemos un primer build con la rama 'create' y accedemos a la aplicación y grabamos una imagen
 en un perfil de un cliente entrando como 'admin' '12345'
 
-- Creamos el storage para la carpeta 'update' y lo montamos en 
-'/opt/clientesapp/uploads' y lo asociamos a la aplicación con el nombre 'uploads'
-
 - Hacemos un segundo build con la rama 'update' y ya podemos acceder a la aplicación sin errores y podemos guardar
 correctamente nuestras imágenes de clientes, ya que su hash va a la BBDD, pero la imagen va al servidor y al reiniciar el POD
 esas imágenes del servidor se pierden
+
+- Creamos el storage para la carpeta 'update' y lo montamos en 
+'/opt/clientesapp/uploads' y lo asociamos a la aplicación con el nombre 'uploads'
 
 ##### - EXTERNAL BBDD's
 
@@ -90,7 +90,7 @@ esas imágenes del servidor se pierden
     hostAliases:
      - hostnames:
          - DEV|PRE|PRO
-       ip: { MYSQL_IP } # Nat IP 
+       ip: { MYSQL_IP }  #Nat IP 
 ```
 ##### - CONFIGMAPS
   
