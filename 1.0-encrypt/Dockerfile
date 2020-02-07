@@ -11,14 +11,14 @@ RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
 ## CONFIG clientesapp USER
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
-## INSTALL SOFTWARE VERSION
+## INSTALL ENCRYPT SOFTWARE VERSION
 ADD latest_version/spring-boot-jpa-1.0.tar /tmp
 
 ## FIX PERMISSIONS
 RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
     chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
-## ENTRYPOINT WITH SECURIZATION FOR EXECUTE FILES
+## COPY 'entrypoint.sh' WITH SECURIZATION FOR EXECUTE ENCRYPT JAR FILES
 COPY entrypoint.sh /tmp/entrypoint.sh
 
 ## FIX PERMISSIONS
