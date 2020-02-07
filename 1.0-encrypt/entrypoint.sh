@@ -6,14 +6,15 @@ encrypt_key=$(cat /etc/secret-volume/password)
 ## UNTAR THE ENCRYPT SW_VERSION, DELETE '*.tar'
 ## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
 cd /tmp
-tar -xf $SW_VERSION.tar
+tar -xvf $SW_VERSION.tar --wildcards 'spring-boot-jpa-1.0.encrypt'
 rm -rf $SW_VERSION.tar
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "/tmp/$SW_VERSION.encrypt" -out "/tmp/$SW_VERSION.tar" -pass stdin
 
 ## UNTAR FILE OF SW_VERSION TO '.jar', COPY '.jar' IN '/opt/clientesapp'
 ## FOLDER AND DELETE '.encrypt' AND '-tar' FILES AT '/temp' FOLDER
 cd /tmp
-tar -xvf $SW_VERSION.tar --wildcards 'spring-boot-jpa-1.0.jar' -C /opt/clientesapp
+tar -xvf $SW_VERSION.tar --wildcards 'spring-boot-jpa-1.0.jar'
+mv $SW_VERSION.jar /opt/clientesapp
 rm -rf $SW_VERSION.encrypt
 rm -rf $SW_VERSION.tar
 
