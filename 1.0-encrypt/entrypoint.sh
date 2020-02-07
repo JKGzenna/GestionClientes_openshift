@@ -12,9 +12,10 @@ echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "/tmp/$SW_VERSION.encry
 
 ## UNTAR FILE OF SW_VERSION TO '.jar', COPY '.jar' IN '/opt/clientesapp'
 ## FOLDER AND DELETE '.encrypt' AND '-tar' FILES AT '/temp' FOLDER
-tar -xf /tmp/$SW_VERSION.tar --wildcards '*.jar' -C /opt/clientesapp --strip 1
+cd /tmp
+tar -xf $SW_VERSION.tar --wildcards '*.jar' -C /opt/clientesapp
 #tar -xf /tmp/$SW_VERSION.tar -C /opt/clientesapp --strip 1
-rm -rf /tmp/$SW_VERSION.encrypt
+rm -rf $SW_VERSION.encrypt
 #rm -rf /tmp/$SW_VERSION.tar
 
 ## SUCCESS MESSAGE
