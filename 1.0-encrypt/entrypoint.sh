@@ -6,7 +6,7 @@ encrypt_key=$(cat /etc/secret-volume/password)
 ## UNTAR THE ENCRYPT SW_VERSION, DELETE '*.tar'
 ## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
 cd /tmp
-tar -f $SW_VERSION.tar --ignore-failed-read
+tar f $SW_VERSION.tar --ignore-failed-read
 echo "tar1"
 sleep 20
 rm -rf $SW_VERSION.tar
