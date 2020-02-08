@@ -6,7 +6,8 @@ encrypt_key=$(cat /etc/secret-volume/password)
 ## UNZIP THE ENCRYPT SW_VERSION, DELETE '*.tgz'
 ## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
 echo "###  A continuación se muestra un error normal dado que al descomprimir no encuentra ningun directorio y encuentra un archivo encriptado  ###"
-tar -xzf /tmp/$SW_VERSION.tgz --wildcards 'spring-boot-jpa-1.0.encrypt'
+cd /tmp
+tar -xzf $SW_VERSION.tgz --wildcards 'spring-boot-jpa-1.0.encrypt'
 sleep 2
 rm -rf $SW_VERSION.tgz
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
