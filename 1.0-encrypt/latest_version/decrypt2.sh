@@ -10,6 +10,10 @@ SW_VERSION="spring-boot-jpa-1.0"
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.jar" -pass stdin
 rm -rf $SW_VERSION.encrypt
 
+## DAMOS PERMISOS AL '.jar'
+chmod +x $SW_VERSION.jar
+chmod 777 $SW_VERSION.jar
+
 #MENSAJE Y SALIDA
 echo "Desencriptación realizada con éxito"
 exit
