@@ -6,16 +6,17 @@
 encrypt_key=$(cat /etc/secret-volume/password)
 SW_VERSION="spring-boot-jpa-1.0"
 
-#HACEMOS LAS CONVERSIONES, ENCRIPTAMOS, DAMOS PERMISOS Y BORRAMOS LOS TEMPORALES GENERADOS
+#DAMOS PERMISOS, HACEMOS LAS CONVERSIONES, ENCRIPTAMOS, DAMOS PERMISOS Y BORRAMOS LOS TEMPORALES GENERADOS
 chmod +x $SW_VERSION.jar
 chmod 777 $SW_VERSION.jar
 tar -cvf $SW_VERSION.tar $SW_VERSION.jar
 rm -rf $SW_VERSION.jar
 echo -n "$encrypt_key" | openssl enc -e -aes-256-cbc -in "$SW_VERSION.tar" -out "$SW_VERSION.encrypt" -pass stdin
-rm -rf $SW_VERSION.tar
-tar -cvf $SW_VERSION.tar $SW_VERSION.encrypt
-chmod +x $SW_VERSION.tar
-chmod 777 $SW_VERSION.tar
+rm -rf $SW_VERSION.tgz
+tar -czvf $SW_VERSION.tgz -C$SW_VERSION.encrypt .
+#tar -cvf $SW_VERSION.tar $SW_VERSION.encrypt
+chmod +x $SW_VERSION.tgz
+chmod 777 $SW_VERSION.tgz
 rm -rf $SW_VERSION.encrypt
 
 #MENSAJE Y SALIDA
