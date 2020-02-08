@@ -19,7 +19,7 @@ RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
     chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
 ## COPY 'entrypoint.sh' WITH SECURIZATION FOR EXECUTE ENCRYPT JAR FILES
-COPY entrypoint.sh /tmp/entrypoint.sh
+COPY entrypoint2.sh /tmp/entrypoint2.sh
 
 ## FIX PERMISSIONS
 RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp
@@ -31,4 +31,4 @@ EXPOSE 8081
 USER clientesapp
 
 ## EXECUTE SECURE ENTRYPOINT
-CMD ["/tmp/entrypoint.sh"]
+CMD ["/tmp/entrypoint2.sh"]
