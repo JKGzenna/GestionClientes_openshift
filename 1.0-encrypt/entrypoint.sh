@@ -6,11 +6,12 @@ encrypt_key=$(cat /etc/secret-volume/password)
 ## UNTAR THE ENCRYPT SW_VERSION, DELETE '*.tar'
 ## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
 cd /tmp
-tar f $SW_VERSION.tar --ignore-failed-read
+tar -f $SW_VERSION.tar
 echo "tar1"
 sleep 20
 rm -rf $SW_VERSION.tar
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
+
 
 ## UNTAR FILE OF SW_VERSION TO '.jar', COPY '.jar' IN '/opt/clientesapp'
 ## FOLDER AND DELETE '.encrypt' AND '-tar' FILES AT '/temp' FOLDER
