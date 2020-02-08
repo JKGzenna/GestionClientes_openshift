@@ -5,11 +5,9 @@ encrypt_key=$(cat /etc/secret-volume/password)
 
 ## UNZIP THE ENCRYPT SW_VERSION, DELETE '*.tgz'
 ## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
-cd /tmp
-echo "A continuación se muestra un error normal dado que al descomprimir encuentra un archivo encriptado"
-tar -xzf $SW_VERSION.tgz --ignore-command-error
+echo "###  A continuación se muestra un error normal dado que al descomprimir no encuentra ningun directorio y encuentra un archivo encriptado  ###"
+tar -xz /tmp/$SW_VERSION.tgz /tmp
 sleep 2
-echo "Final de error normal dado que al descomprimir encuentra un archivo encriptado"
 rm -rf $SW_VERSION.tgz
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
 
@@ -21,7 +19,7 @@ rm -rf $SW_VERSION.encrypt
 rm -rf $SW_VERSION.tar
 
 ## SUCCESS MESSAGE
-echo "Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar"
+echo "###  Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar  ###"
 
 ## GO TO '/opt/clienteapp' FOLDER AND START '*.jar'
 cd /opt/clientesapp

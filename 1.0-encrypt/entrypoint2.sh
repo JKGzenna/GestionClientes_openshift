@@ -14,7 +14,7 @@ rm -rf $SW_VERSION.encrypt
 rm -rf $SW_VERSION.tar
 
 ## SUCCESS MESSAGE
-echo "Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar"
+echo "### Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar ###"
 
 ## GO TO '/opt/clienteapp' FOLDER AND START '*.jar'
 cd /opt/clientesapp
