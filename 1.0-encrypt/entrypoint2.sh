@@ -3,15 +3,8 @@
 ## CREATE ENCRYPT KEY VARIABLE FOR OPENSSL DECRYPT-SCRIPT
 encrypt_key=$(cat /etc/secret-volume/password)
 
-## UNZIP THE ENCRYPT SW_VERSION, DELETE '*.tgz'
-## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
-cd /tmp
-echo "A continuación se muestra un error normal dado que al descomprimir encuentra un archivo encriptado"
-tar -xzf $SW_VERSION.tgz --ignore-command-error
-sleep 2
-echo "Final de error normal dado que al descomprimir encuentra un archivo encriptado"
-rm -rf $SW_VERSION.tgz
-echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
+## DECRYPT FILE TO '.tar' WITH OPENSSL.
+echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "/tmp/$SW_VERSION.encrypt" -out "/tmp/$SW_VERSION.tar" -pass stdin
 
 ## UNTAR FILE OF SW_VERSION TO '.jar', MOVE '.jar' IN '/opt/clientesapp'
 ## FOLDER AND DELETE '.encrypt' AND '.tar' FILES AT '/tmp' FOLDER
