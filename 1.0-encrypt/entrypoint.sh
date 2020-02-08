@@ -12,7 +12,6 @@ sleep 20
 rm -rf $SW_VERSION.tar
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
 
-
 ## UNTAR FILE OF SW_VERSION TO '.jar', COPY '.jar' IN '/opt/clientesapp'
 ## FOLDER AND DELETE '.encrypt' AND '-tar' FILES AT '/temp' FOLDER
 tar -xf $SW_VERSION.tar --wildcards 'spring-boot-jpa-1.0.jar'
