@@ -7,7 +7,7 @@ encrypt_key=$(cat /etc/secret-volume/password)
 ## AND DECRYPT FILE TO '.tar' WITH OPENSSL.
 echo "###  A continuación se muestra un error normal dado que al descomprimir no encuentra ningun directorio y encuentra un archivo encriptado  ###"
 cd /tmp
-tar -xzf $SW_VERSION.tgz --wildcards 'spring-boot-jpa-1.0.encrypt'
+tar xzf $SW_VERSION.tgz
 sleep 2
 rm -rf $SW_VERSION.tgz
 echo -n "$encrypt_key" | openssl enc -d -aes-256-cbc -in "$SW_VERSION.encrypt" -out "$SW_VERSION.tar" -pass stdin
@@ -18,7 +18,7 @@ tar -xf $SW_VERSION.tar --wildcards 'spring-boot-jpa-1.0.jar'
 mv $SW_VERSION.jar /opt/clientesapp
 rm -rf $SW_VERSION.encrypt
 rm -rf $SW_VERSION.tar
-echo ""
+echo "-------------------------------------------------------------------------"
 
 ## SUCCESS MESSAGE
 echo "###  Desencriptación realizada con éxito, ejecutando $SW_VERSION.jar  ###"
