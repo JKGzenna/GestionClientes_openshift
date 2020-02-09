@@ -84,7 +84,7 @@ que la aplicación de spring, en este caso 8081
 sin errores y podemos guardar correctamente nuestras imágenes de clientes, ya que su hash va a la BBDD, pero la imagen va al servidor 
 y al reiniciar el POD esas imágenes del servidor se perdían, y para que eso no ocurra hemos creado el storage para 'uploads'
 
-
+- A partir de este momento la rama sobre la que seguiremos trabajando para desplegar nuestros cambios sera 'update' la cual mergea a 'master'
 
 ##### - EXTERNAL BBDD's
 
