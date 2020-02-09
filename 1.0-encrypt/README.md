@@ -73,15 +73,18 @@ que la aplicación de spring, en este caso 8081
 
 ##### - VOLUME FOR IMAGES OF CUSTOMERS
 
-- Hacemos un primer build con la rama 'create' y accedemos a la aplicación y grabamos una imagen
-en un perfil de un cliente entrando como 'admin' '12345'
-
-- Hacemos un segundo build con la rama 'update' y ya podemos acceder a la aplicación sin errores y podemos guardar
-correctamente nuestras imágenes de clientes, ya que su hash va a la BBDD, pero la imagen va al servidor y al reiniciar el POD
-esas imágenes del servidor se pierden y para ello a continuación...
+- Al ejecutar la plantilla se creará el primer, build, image y deploy con la rama 'create'
 
 - Creamos el storage para la carpeta 'update' y lo montamos en 
-'/opt/clientesapp/uploads' y lo asociamos a la aplicación con el nombre 'uploads'
+'/opt/clientesapp/uploads' y lo asociamos a la aplicación con el nombre 'uploads', en ese momento se desplegará de nuevo el POD
+
+- accedemos a la aplicación y creamos un cliente con una imagen entrando como 'admin' '12345'
+
+- Hacemos un segundo build con la rama 'update' y cuando se actualizen la imagen y el deploy ya podemos acceder a la aplicación 
+sin errores y podemos guardar correctamente nuestras imágenes de clientes, ya que su hash va a la BBDD, pero la imagen va al servidor 
+y al reiniciar el POD esas imágenes del servidor se perdían, y para que eso no ocurra hemos creado el storage para 'uploads'
+
+
 
 ##### - EXTERNAL BBDD's
 
