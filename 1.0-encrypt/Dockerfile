@@ -12,7 +12,7 @@ RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL ENCRYPT SOFTWARE VERSION
-ADD latest_version/spring-boot-jpa-1.0.tgz /tmp
+ADD latest_version/test/spring-boot-jpa-1.0.encrypt /tmp
 
 ## FIX PERMISSIONS
 RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
