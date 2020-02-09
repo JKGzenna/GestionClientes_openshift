@@ -12,16 +12,15 @@ RUN yum install epel-release curl java-1.8.0-openjdk glibc telnet net-tools \
 RUN adduser --system -s /bin/bash -u 10001 -g 0 clientesapp
 
 ## INSTALL ENCRYPT SOFTWARE VERSION
-ADD latest_version/test/spring-boot-jpa-1.0.encrypt /tmp
+ADD latest_version/spring-boot-jpa-1.0.encrypt /tmp
 
-## FIX PERMISSIONS
-RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp && \
-    chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
+## FIX PERMISSIONS FOR '/opt/clientesapp' FOLDER
+RUN chmod 775 -R /opt/clientesapp && chown -R 10001 /opt/clientesapp
 
-## COPY 'entrypoint.sh' WITH SECURIZATION FOR EXECUTE ENCRYPT JAR FILES
-COPY entrypoint2.sh /tmp/entrypoint2.sh
+## COPY 'entrypoint.sh' WITH SECURIZATION FOR DECRYPT JAR FILES
+COPY entrypoint.sh /tmp/entrypoint.sh
 
-## FIX PERMISSIONS
+## FIX PERMISSIONS FOR '/tmp' FOLDER
 RUN chmod 775 -R /tmp && chgrp -R 0 /tmp && chown -R 10001 /tmp
 
 ## APP EXPOSE PORT (NGINX SERVICE REDIRECT PORT 8081 -> 8448)
@@ -31,4 +30,4 @@ EXPOSE 8081
 USER clientesapp
 
 ## EXECUTE SECURE ENTRYPOINT
-CMD ["/tmp/entrypoint2.sh"]
+CMD ["/tmp/entrypoint.sh"]
