@@ -78,7 +78,7 @@ en un perfil de un cliente entrando como 'admin' '12345'
 
 - Hacemos un segundo build con la rama 'update' y ya podemos acceder a la aplicación sin errores y podemos guardar
 correctamente nuestras imágenes de clientes, ya que su hash va a la BBDD, pero la imagen va al servidor y al reiniciar el POD
-esas imágenes del servidor se pierden
+esas imágenes del servidor se pierden y para ello a continuación...
 
 - Creamos el storage para la carpeta 'update' y lo montamos en 
 '/opt/clientesapp/uploads' y lo asociamos a la aplicación con el nombre 'uploads'
