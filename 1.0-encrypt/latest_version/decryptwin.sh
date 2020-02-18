@@ -1,5 +1,9 @@
 #!/bin/bash
 ## COLOCAR EL '.encrypt' EN LA MISMA RUTA DEL SCRIPT Y EJECUTARLO DESDE ESE DIRECTORIO
 ## DESENCRIPTAMOS EL '.encrypt' CON OPENSSL
-echo "Instale OpenSSL en Windows, en caso de no tener permisos de Adminsitrador utilice el terminal bash de MobaXterm ejecutando dentro de él 'apt-get install openssl -y' antes de usar este script, recuerde además en 'settings/general' del MobaXterm asignar una ruta para el 'Persistent Home Directory' y para el 'Persistent Root Directory' ;-)"
+echo "Instale OpenSSL en Windows, en caso de no tener permisos de Adminsitrador para hacerlo, utilice el terminal bash de MobaXterm portable.
+En MobaXterm, configure primero dentro de 'settings/general' una ruta para 'Persistent Home Directory' y para 'Persistent Root Directory'.
+Si configura esas rutas, cualquier paquete que instale para enriquecer su sesión de bash, estará disponible al reiniciar MobaXterm. 
+Después de configurar su sesión bash desde MobaXterm, ejecute 'apt-get install openssl -y' para instalar el paquete 'openssl'
+Si ha realizado estos pasos anteriores correctamente podrá usar este script sin errores de desencriptación, en caso contrario realice dichos pasos."
 openssl enc -d -aes-256-cbc -md md5 -in "spring-boot-jpa-1.0.encrypt" -out "spring-boot-jpa-1.0.jar"
